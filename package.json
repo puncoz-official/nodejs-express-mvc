@@ -1,0 +1,47 @@
+{
+  "name": "node-mvc",
+  "version": "1.0.0",
+  "description": "node-mvc",
+  "main": "src/server.js",
+  "engines": {
+    "node": "~v12",
+    "npm": "~6.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir build",
+    "knex": "babel-node node_modules/.bin/knex --knexfile knexfile.js --env knexDB",
+    "make:migration": "yarn knex migrate:make",
+    "migrate": "yarn knex migrate:latest",
+    "migrate:rollback": "yarn knex migrate:rollback",
+    "make:seed": "yarn knex seed:make",
+    "db:seed": "yarn knex seed:run"
+  },
+  "author": "puncoz <puncoz138+github@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "faker": "^4.1.0",
+    "helmet": "^3.18.0",
+    "knex": "^0.18.3",
+    "lodash": "^4.17.14",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "objection": "^1.6.9",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/node": "^7.5.0",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-env": "^7.5.0",
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
