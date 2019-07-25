@@ -18,10 +18,7 @@ export default base => class extends base {
 
     async delete(id) {
         await this.find(id)
-        //
-        // const result = await this.model.query().patchAndFetchById(id, data)
-        //
-        // return this.parserResult(result)
+
         return await this.model.query().deleteById(id)
     }
 
@@ -55,5 +52,9 @@ export default base => class extends base {
         const results = await this.model.query().page(page - 1, perPage)
 
         return this.parserResult(new Pagination(results, perPage, page))
+    }
+
+    query() {
+        return this.model.query()
     }
 }

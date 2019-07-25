@@ -1,7 +1,7 @@
 {
-  "name": "node-mvc",
+  "name": "e-sifaris-server",
   "version": "1.0.0",
-  "description": "node-mvc",
+  "description": "e-sifaris express server",
   "main": "src/server.js",
   "engines": {
     "node": "~v12",
@@ -18,9 +18,10 @@
     "make:seed": "yarn knex seed:make",
     "db:seed": "yarn knex seed:run"
   },
-  "author": "puncoz <puncoz138+github@gmail.com>",
+  "author": "puncoz <pankaj.nepal@yipl.com.np>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -28,11 +29,15 @@
     "express-validator": "^6.1.1",
     "faker": "^4.1.0",
     "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.18.3",
     "lodash": "^4.17.14",
     "method-override": "^3.0.0",
     "morgan": "^1.9.1",
     "objection": "^1.6.9",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "pg": "^7.11.0"
   },
   "devDependencies": {

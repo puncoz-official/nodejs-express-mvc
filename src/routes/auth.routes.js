@@ -1,9 +1,9 @@
-import { Router } from "express"
+import { FormValidations } from "../app/middlewares"
+import AuthValidations     from "../app/validations/auth.validations"
+import Router              from "../libraries/controller/router"
 
-const router = Router()
+Router.post("/login", [
+    AuthValidations.login, FormValidations,
+], "AuthController@login")
 
-router.get("/login", (req, res, next) => {
-    res.json({ name: "login" })
-})
-
-export default router
+export default Router.export()

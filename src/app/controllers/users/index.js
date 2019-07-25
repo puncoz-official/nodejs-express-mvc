@@ -9,7 +9,6 @@ export default class UserController extends Controller {
     async index(req, res) {
         const users = await UserRepository.setTransformer(UserTransformer).paginate(PAGINATE_MD, req.query.page)
 
-        console.log(this)
         return this.sendResponse(res, users)
     }
 
@@ -44,6 +43,18 @@ export default class UserController extends Controller {
             await UserRepository.delete(req.params.userId)
 
             return this.sendResponse(res, null, "User deleted successfully.")
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async changePassword(req, res, next) {
+        const { password } = matchedData(req)
+
+        try {
+            await UserRepository.update({ password }, req.params.userId)
+
+            return this.sendResponse(res, null, "Password changed successfully.")
         } catch (e) {
             next(e)
         }
